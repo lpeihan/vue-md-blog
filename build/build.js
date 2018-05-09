@@ -1,5 +1,8 @@
 'use strict';
 
+const watcher = require('./watcher')();
+watcher.close();
+
 process.env.NODE_ENV = 'production';
 
 const ora = require('ora');

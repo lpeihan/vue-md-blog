@@ -48,4 +48,6 @@ module.exports = () => {
     .on('unlink', (path) => {
       deleteArticle(basename(path));
     });
+
+  return watcher;
 };

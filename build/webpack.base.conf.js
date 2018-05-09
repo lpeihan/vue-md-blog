@@ -1,7 +1,5 @@
 'use strict';
 
-require('./watcher')();
-
 const { resolve, assetsPath, cssLoader, vueLoaderConf } = require('./utils');
 
 module.exports = {
