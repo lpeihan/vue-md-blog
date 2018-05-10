@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from './views/hello.vue';
+import ArticleList from './views/articles/article-list.vue';
 import articles from '../articles/articles';
 
 Vue.use(Router);
@@ -8,15 +8,33 @@ Vue.use(Router);
 const routes = [
   {
     path: '/',
-    name: 'hello',
-    component: Hello
+    name: 'ArticleList',
+    component: ArticleList
   }
 ];
 
 Object.keys(articles).forEach((article) => {
+  const name = `${article.replace(/\.md/, '')}`;
   routes.splice(1, 0, {
-    path: `/${article.replace(/\.md/, '')}`,
-    component: () => import(`../articles/${article}`)
+    path: `/${name}`,
+    name,
+    component: {
+      template:
+        `<div style="background: white">
+          <article-header :name="name" :date="date"/>
+          <markdown />
+         </div>`,
+      data() {
+        return {
+          name: articles[article].title,
+          date: articles[article].date
+        };
+      },
+      components: {
+        ArticleHeader: () => import(`./views/articles/article-header`),
+        Markdown: () => import(`../articles/${article}`)
+      }
+    }
   });
 });
 

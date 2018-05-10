@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.4.0",
+    "chokidar": "^2.0.3",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
@@ -37,6 +38,7 @@
     "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gh-pages": "^1.1.0",
+    "highlight.js": "^9.12.0",
     "html-webpack-plugin": "^3.2.0",
     "nib": "^1.1.2",
     "node-notifier": "^5.2.1",
@@ -48,6 +50,7 @@
     "stylus-loader": "^3.0.2",
     "url-loader": "^1.0.1",
     "vue-loader": "^14.2.2",
+    "vue-markdown-loader": "^2.4.1",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^3.8.1",
@@ -55,12 +58,8 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "china-area-data": "^4.0.0",
-    "chokidar": "^2.0.3",
-    "mint-ui": "^2.2.13",
+    "marked": "^0.3.19",
     "vue": "^2.5.16",
-    "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   }

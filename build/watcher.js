@@ -13,12 +13,18 @@ function isMarkdown(filename) {
 function getArticle(filename) {
   if (isMarkdown(filename)) {
     try {
-      const article = fs.readFileSync(resolve(`articles/${filename}`))
-        .toString()
-        .replace(/[\n\r]/g, '');
-      const title = article.match(/\{(.*?)\}/)[1];
+      const article = fs.readFileSync(resolve(`articles/${filename}`)).toString();
+      let articleInfo = '';
 
-      articlesJson[filename] = JSON.parse(`{${title}}`);
+      article
+        .replace(/[\n\r]/g, '')
+        .replace(/\{(.*?)\}/, function(match) {
+          articleInfo = JSON.parse(match);
+          return '';
+        });
+      const content = article.split('<!-- lph -->')[0];
+
+      articlesJson[filename] = Object.assign(articleInfo, { content });
 
       fs.writeFileSync(resolve('articles/articles.json'), JSON.stringify(articlesJson, null, 2));
     } catch (e) {

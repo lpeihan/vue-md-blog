@@ -1,6 +1,24 @@
 'use strict';
 
 const { resolve, assetsPath, cssLoader, vueLoaderConf } = require('./utils');
+const marked = require('marked');
+const highlight = require('highlight.js');
+
+function compiledMarkdown(md) {
+  return marked(md, {
+    renderer: new marked.Renderer(),
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: true,
+    smartLists: true,
+    smartypants: true,
+    highlight(code) {
+      return highlight.highlightAuto(code).value;
+    }
+  });
+}
 
 module.exports = {
   context: resolve(),
@@ -22,7 +40,12 @@ module.exports = {
     rules: [
       {
         test: /\.md$/,
-        loader: 'vue-markdown-loader'
+        loader: 'vue-markdown-loader',
+        options: {
+          preprocess: function(markdownIt, source) {
+            return compiledMarkdown(source);
+          }
+        }
       },
       {
         test: /\.js$/,
