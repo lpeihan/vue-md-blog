@@ -40,7 +40,7 @@ export default {
         opacity: 0
       &-enter-active
       &-leave-active
-        transition: opacity .5s
+        transition: opacity .6s
 
     .markdown-body
       box-sizing: border-box

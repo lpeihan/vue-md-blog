@@ -1,6 +1,6 @@
 {
   "title": "promise",
-  "tags": "javascript",
+  "tags": "javascript 技术",
   "date": "2016-08-01"
 }
 

@@ -61,6 +61,7 @@ const getters = {
   // compile markdown
   articles(state) {
     return state.articles.map((article) => {
+      article.tags = article.tags.split(' ');
       return Object.assign(article, {
         content: compileMarkdown(article.content)
       });

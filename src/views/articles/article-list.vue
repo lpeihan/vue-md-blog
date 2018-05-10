@@ -9,6 +9,9 @@
       />
       <div class="article-content" v-html="article.content"></div>
       <div class="article-footer">
+        <div class="tag-list">
+          <div class="tag" v-for="tag in article.tags" :key="tag">{{tag}}</div>
+        </div>
         <a
           class="more"
           @click="$router.push(article.name)">
@@ -52,18 +55,49 @@ export default {
       &-content
         padding: 1% 5%
       &-footer
-        position: relative
+        color: $white
+        display: flex
+        justify-content: space-between
+        align-items: center
         margin: 0 5%
         border-top: 1px solid rgb(204, 219, 204)
         height: 80px
+        .tag-list
+          font-size: 14px
+          margin-left: 9px
+          .tag
+            position: relative
+            float: left
+            height: 18px
+            padding: 0 6px 0 8px
+            line-height: 18px
+            background: #ba8f6c
+            margin-right: 20px
+            border-top-right-radius: 5px
+            border-bottom-right-radius: 5px
+            &::before
+              position: absolute
+              left: -18px
+              content: ''
+              width: 0
+              height: 0
+              border: 9px solid transparent
+              border-right: 9px solid #ba8f6c
+            &::after
+              position: absolute
+              top: 50%
+              transform: translateY(-50%)
+              left: 0
+              background: $white
+              content: ''
+              width: 4px
+              height: 4px
+              border-radius: 50%
+              box-shadow: 0 0 0 1px rgba(0, 0, 0, .3)
+
         .more
-          position: absolute
-          right: 0
-          top: 50%
-          transform: translateY(-50%)
           background: #4d4d4d
           padding: 5px 8px
-          color: $white
           font-size: 14px
           border-radius: 2px
           cursor: pointer
