@@ -21,12 +21,12 @@ Object.keys(articles).forEach((article) => {
     component: {
       template:
         `<div style="background: white">
-          <article-header :name="name" :date="date"/>
+          <article-header :title="title" :date="date"/>
           <markdown />
          </div>`,
       data() {
         return {
-          name: articles[article].title,
+          title: articles[article].title,
           date: articles[article].date
         };
       },

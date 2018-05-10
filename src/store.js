@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import compileMarkdown from './utils/marked';
 
 Vue.use(Vuex);
 
@@ -57,8 +58,13 @@ const actions = {
 };
 
 const getters = {
+  // compile markdown
   articles(state) {
-    return state.articles;
+    return state.articles.map((article) => {
+      return Object.assign(article, {
+        content: compileMarkdown(article.content)
+      });
+    });
   },
   tags(state) {
     return state.tags;

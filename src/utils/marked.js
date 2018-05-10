@@ -1,7 +1,8 @@
-import marked from 'marked';
-import highlight from 'highlight.js';
+const marked = require('marked');
+const highlight = require('highlight.js');
 
-function compiledMarkdown(markdown) {
+// 为了兼容 webpack 打包
+module.exports = function(markdown) {
   return marked(markdown, {
     renderer: new marked.Renderer(),
     gfm: true,
@@ -15,6 +16,4 @@ function compiledMarkdown(markdown) {
       return highlight.highlightAuto(code).value;
     }
   });
-}
-
-export default compiledMarkdown;
+};
