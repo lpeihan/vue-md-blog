@@ -36,6 +36,7 @@ export default {
   #app
     .content
       margin-left: 300px
+      padding: 10px 30px
       background: $default-bg
     .fade
       &-enter

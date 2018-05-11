@@ -1,8 +1,9 @@
 <template>
-  <div class="back-top" v-if="backShow" @click="backTop">
-    <!-- {{percent}}% -->
-    UP
-  </div>
+  <transition>
+    <div class="back-top" v-if="backShow" @click="backTop">
+      UP
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -58,7 +59,7 @@ export default {
     position: fixed
     text-align: center
     color: $white
-    right: 25px
+    right: 30px
     bottom: 50px
     width: 40px
     height: 40px
@@ -67,4 +68,12 @@ export default {
     background: $overlay
     overflow: hidden
     cursor: pointer
+    &.v
+      &-enter-active
+      &-leave-active
+        transition: all .3s
+      &-enter
+      &-leave-to
+        bottom: -30px
+        opacity: 0
 </style>

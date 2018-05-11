@@ -47,7 +47,7 @@ export default {
 
   .article-list
     .article
-      margin: 10px 25px 25px
+      margin-bottom: 25px
       background: $white
       p
         &:first-child
