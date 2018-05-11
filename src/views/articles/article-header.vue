@@ -21,7 +21,7 @@ export default {
     display: flex
     justify-content: space-between
     align-items: center
-    padding: 1.5% 5%
+    padding: 1.5% 8%
     border-left: 4px solid #4d4d4d
     color: #696969
     .title

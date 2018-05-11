@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="overlay">
-      <div class="avatar">
+      <div class="avatar" @click="$router.push('/')">
         <img src="../assets/avatar.png" alt="avatar" with="100%" height="100%">
       </div>
     </div>
@@ -21,7 +21,7 @@
     .overlay
       position: relative
       height: 160px
-      background: rgb(204, 219, 204)
+      background: #4d4d4d
     .avatar
       size: 110px
       border: 5px solid $white
@@ -29,4 +29,6 @@
       absolute: bottom -50px left 50%
       border-radius: 50%
       transform: translateX(-50%)
+      cursor: pointer
+
 </style>

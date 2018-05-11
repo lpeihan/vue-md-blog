@@ -10,7 +10,7 @@
       <div class="article-content" v-html="article.content"></div>
       <div class="article-footer">
         <div class="tag-list">
-          <div class="tag" v-for="tag in article.tags" :key="tag">{{tag}}</div>
+          <a class="tag" v-for="tag in article.tags" :key="tag">{{tag}}</a>
         </div>
         <a
           class="more"
@@ -47,20 +47,20 @@ export default {
 
   .article-list
     .article
-      margin-bottom: 20px
+      margin: 10px 25px 25px
       background: $white
       p
         &:first-child
           display: none
       &-content
-        padding: 1% 5%
+        padding: 1% 8%
       &-footer
         color: $white
         display: flex
         justify-content: space-between
         align-items: center
-        margin: 0 5%
-        border-top: 1px solid rgb(204, 219, 204)
+        margin: 0 8%
+        border-top: 1px solid #eaecef
         height: 80px
         .tag-list
           font-size: 14px
@@ -75,6 +75,9 @@ export default {
             margin-right: 20px
             border-top-right-radius: 5px
             border-bottom-right-radius: 5px
+            cursor: pointer
+            &:hover
+              transform: scale(1.1)
             &::before
               position: absolute
               left: -18px

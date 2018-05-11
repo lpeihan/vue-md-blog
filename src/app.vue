@@ -7,18 +7,22 @@
         <router-view />
       </transition>
     </div>
+
+    <back-top />
   </div>
 </template>
 
 <script>
 import Sidebar from './views/sidebar';
+import BackTop from './components/back-top';
 
 import './styles/lib/github-markdown-css.css'; // for marked
 import './styles/lib/github.css'; // for highlight.js
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    BackTop
   }
 };
 </script>
@@ -32,7 +36,6 @@ export default {
   #app
     .content
       margin-left: 300px
-      padding: 10px 30px
       background: $default-bg
     .fade
       &-enter
@@ -48,7 +51,7 @@ export default {
 
       section
         background: $white
-        padding: 2% 5%
+        padding: 1% 5%
         p
           &:first-child
             display: none
