@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import ArticleList from './views/articles/article-list.vue';
+import Tags from './views/tags/tags';
+
 import articles from '../articles/articles';
 
 Vue.use(Router);
@@ -10,6 +12,16 @@ const routes = [
     path: '/',
     name: 'ArticleList',
     component: ArticleList
+  },
+  {
+    path: '/tags/:tag',
+    name: 'tagsArticles',
+    component: ArticleList
+  },
+  {
+    path: '/tags',
+    name: 'Tags',
+    component: Tags
   }
 ];
 
@@ -39,5 +51,12 @@ Object.keys(articles).forEach((article) => {
 });
 
 export default new Router({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
 });

@@ -1,108 +1,55 @@
 <template>
   <div class="article-list">
-    <div class="article"
-      v-for="(article, index) in articles"
-      :key="index">
-      <article-header
-        :title="article.title"
-        :date="article.date"
-      />
-      <div class="article-content" v-html="article.content"></div>
-      <div class="article-footer">
-        <div class="tag-list">
-          <a class="tag" v-for="tag in article.tags" :key="tag">{{tag}}</a>
-        </div>
-        <a
-          class="more"
-          @click="$router.push(article.name)">
-          展开全文 >>
-        </a>
-      </div>
-    </div>
+    <article-item
+      v-for="article in articles"
+      :article="article"
+      :key="article.name">
+    </article-item>
+
+    <pagination></pagination>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-import ArticleHeader from './article-header';
+import { mapGetters, mapActions } from 'vuex';
+import ArticleItem from './article-item';
+import Pagination from '../../components/pagination';
 
 export default {
-  computed: {
-    ...mapGetters(['articles', 'tags'])
+  data() {
+    return {
+      start: 0,
+      limit: 5
+    };
   },
-  components: {
-    ArticleHeader
+  computed: {
+    ...mapGetters(['articles']),
+    total() {
+      return this.articles.length;
+    }
+  },
+  watch: {
+    // 组件复用时，强制刷新
+    '$route': 'query'
   },
   methods: {
-    ...mapActions(['getArticles'])
+    ...mapActions([
+      'getArticles'
+    ]),
+    query() {
+      this.getArticles({
+        tag: this.$route.params.tag,
+        start: this.start,
+        limit: this.limit
+      });
+    }
   },
-  async mounted() {
-    await this.getArticles();
+  components: {
+    ArticleItem,
+    Pagination
+  },
+  mounted() {
+    this.query();
   }
 };
 </script>
-
-<style lang="stylus">
-  @import "../../styles/variables"
-
-  .article-list
-    .article
-      margin-bottom: 25px
-      background: $white
-      p
-        &:first-child
-          display: none
-      &-content
-        padding: 1% 8%
-      &-footer
-        color: $white
-        display: flex
-        justify-content: space-between
-        align-items: center
-        margin: 0 8%
-        border-top: 1px solid #eaecef
-        height: 80px
-        .tag-list
-          font-size: 14px
-          margin-left: 9px
-          .tag
-            position: relative
-            float: left
-            height: 18px
-            padding: 0 6px 0 8px
-            line-height: 18px
-            background: #ba8f6c
-            margin-right: 20px
-            border-top-right-radius: 5px
-            border-bottom-right-radius: 5px
-            cursor: pointer
-            &:hover
-              transform: scale(1.1)
-            &::before
-              position: absolute
-              left: -18px
-              content: ''
-              width: 0
-              height: 0
-              border: 9px solid transparent
-              border-right: 9px solid #ba8f6c
-            &::after
-              position: absolute
-              top: 50%
-              transform: translateY(-50%)
-              left: 0
-              background: $white
-              content: ''
-              width: 4px
-              height: 4px
-              border-radius: 50%
-              box-shadow: 0 0 0 1px rgba(0, 0, 0, .3)
-
-        .more
-          background: #4d4d4d
-          padding: 5px 8px
-          font-size: 14px
-          border-radius: 2px
-          cursor: pointer
-
-</style>

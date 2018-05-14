@@ -1,7 +1,7 @@
 {
   "title": "promise",
-  "tags": "javascript 技术",
-  "date": "2016-08-01"
+  "tags": "javascript mongo redis webpack node koa express",
+  "date": "2018-03-01"
 }
 
 * 概念

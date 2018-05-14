@@ -1,7 +1,7 @@
 {
   "title": "Vue-Occupy",
   "tags": "javascript vue tool",
-  "date": "2016-08-01"
+  "date": "2018-05-13"
 }
 
 A Vue directive for occupying content places before the data has been loaded.

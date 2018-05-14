@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Sidebar from './views/sidebar';
+import Sidebar from './views/sidebar/sidebar';
 import BackTop from './components/back-top';
 
 import './styles/lib/github-markdown-css.css'; // for marked
