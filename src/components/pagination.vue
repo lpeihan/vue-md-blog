@@ -1,7 +1,7 @@
 <template>
-  <div class="pagination">
+  <div class="pagination" v-if="total > 5">
     <ul>
-      <li @click="go(page - 1)">Prev</li>
+      <li @click="go(page - 1)" :class="{'text': page === 1}">Prev</li>
       <li class="page" v-if="page >= 4" @click="go(1)">1</li>
       <li class="page" v-if="page == 4" @click="go(2)">2</li>
       <li v-if="page >= 5">...</li>
@@ -14,7 +14,7 @@
       <li class="page" v-if="totalPage - page >= 3" @click="go(page + 2)">{{page + 2}}</li>
       <li v-if="totalPage - page >= 4">...</li>
       <li class="page" v-if="page != totalPage" @click="go(totalPage)">{{totalPage}}</li>
-      <li @click="go(page + 1)">Next</li>
+      <li @click="go(page + 1)" :class="{'text': page === totalPage}">Next</li>
     </ul>
   </div>
 </template>
@@ -45,11 +45,18 @@ export default {
       page: 1
     };
   },
+  watch: {
+    $route() {
+      this.page = 1;
+      this.$emit('update:start', 0);
+    }
+  },
   methods: {
     go(page) {
-      if (page >= 1 && page <= this.total) {
+      if (page >= 1 && page <= this.totalPage) {
         this.page = page;
-        this.start = (page - 1) * this.limit;
+        const start = (page - 1) * this.limit;
+        this.$emit('update:start', start);
       }
     }
   }
@@ -81,4 +88,6 @@ export default {
         &.active
           background: #88acdb
           cursor: default
+        &.text
+          cursor: text
 </style>

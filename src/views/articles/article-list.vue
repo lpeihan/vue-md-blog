@@ -6,7 +6,7 @@
       :key="article.name">
     </article-item>
 
-    <pagination></pagination>
+    <pagination :start.sync="start" :limit="limit" :total="total"></pagination>
   </div>
 </template>
 
@@ -23,21 +23,31 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['articles']),
-    total() {
-      return this.articles.length;
-    }
+    ...mapGetters(['articles', 'total'])
   },
   watch: {
     // 组件复用时，强制刷新
-    '$route': 'query'
+    async $route() {
+      await this.query();
+    },
+    async start() {
+      await this.query();
+      const dom = document.documentElement;
+      let scrollTop = dom.scrollTop;
+
+      for (let i = 60; i >= 0; i--) {
+        setTimeout((i) => {
+          dom.scrollTop = scrollTop * i / 60;
+        }, 200 / 60 * (60 - i), i);
+      }
+    }
   },
   methods: {
     ...mapActions([
       'getArticles'
     ]),
-    query() {
-      this.getArticles({
+    async query() {
+      await this.getArticles({
         tag: this.$route.params.tag,
         start: this.start,
         limit: this.limit
@@ -48,8 +58,8 @@ export default {
     ArticleItem,
     Pagination
   },
-  mounted() {
-    this.query();
+  async mounted() {
+    await this.query();
   }
 };
 </script>

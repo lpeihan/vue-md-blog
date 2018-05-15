@@ -47,15 +47,18 @@ function fetchArticles(options = {}) {
     const tags = formatTags(articles);
 
     articles = tag ? articles.filter(article => article.tags.includes(tag)) : articles;
+    const total = articles.length;
 
     resolve({
       articles: articles.slice(start, start + limit),
-      tags: [...tags]
+      tags: [...tags],
+      total
     });
   });
 };
 
 const state = {
+  total: 0,
   articles: [],
   tags: []
 };
@@ -66,13 +69,17 @@ const mutations = {
   },
   getTags(state, tags) {
     state.tags = tags;
+  },
+  getTotal(state, total) {
+    state.total = total;
   }
 };
 
 const actions = {
   async getArticles({ commit }, tag) {
     try {
-      const { articles, tags } = await fetchArticles(tag);
+      const { articles, tags, total } = await fetchArticles(tag);
+      commit('getTotal', total);
       commit('getArticles', articles);
       commit('getTags', tags);
     } catch (e) {
@@ -93,6 +100,9 @@ const getters = {
   },
   tags(state) {
     return state.tags;
+  },
+  total(state) {
+    return state.total;
   }
 };
 
