@@ -10,15 +10,15 @@
         生如逆旅，一苇以航。
       </div>
       <div class="nav">
-        <div class="item">首页</div>
+        <div class="item" @click="$router.push('/')">首页</div>
         <div class="item" @click="$router.push('/tags')">标签</div>
-        <div class="item">归档</div>
-        <div class="item">关于我</div>
+        <div class="item"  @click="$router.push('/archives')">归档</div>
+        <div class="item">搜索</div>
       </div>
       <div class="links">
-        <div class="github"></div>
-        <div class="github"></div>
-        <div class="github"></div>
+        <a class="github" href="https://github.com/lpeihan" target="_blank"></a>
+        <a class="github"></a>
+        <a class="github"></a>
       </div>
     </div>
   </div>
@@ -67,14 +67,15 @@
       .sub-title
         color: #999
         line-height: 30px
-        margin-top: 10px
-        margin-bottom: 40px
+        margin: 25px 0
       .nav
         color: #999
-        line-height: 32px
-        margin-bottom: 30px
+        margin-bottom: 40px
         .item
+          padding: 8px 0
           cursor: pointer
+          &:hover
+            color: #333
       .links
         text-align: center
         .github
@@ -85,6 +86,10 @@
           border-radius: 50%
           box-shadow: 1px 1px 3px rgba(0,0,0,0.3)
           display: inline-block
-          margin-right: 10px
+          margin-right: 20px
+          cursor: pointer
+          position: relative
+          &:last-child
+            margin-right: 0
 
 </style>

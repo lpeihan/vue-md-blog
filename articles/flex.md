@@ -1,7 +1,7 @@
 {
-  "title": "flex",
+  "title": "使用 Travis CI 自动更新 GitHub Pages",
   "tags": "javascript css",
-  "date": "2018-05-14"
+  "date": "2017-05-14"
 }
 
 #### flex

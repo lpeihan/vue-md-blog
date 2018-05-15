@@ -1,5 +1,5 @@
 {
-  "title": "Vue-Occupy",
+  "title": "A Vue directive for occupying content places before the data has been loaded",
   "tags": "javascript vue tool",
   "date": "2018-05-13"
 }

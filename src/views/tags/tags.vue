@@ -6,11 +6,12 @@
     <div class="container">
       <div class="tag-list">
         <div
-          @click="$router.push(`/tags/${tag}`)"
+          @click="$router.push(`/tags/${tag.tag}`)"
           class="item"
-          v-for="tag in tags"
-          :key="tag">
-          {{tag}}
+          :style="{ fontSize: tag.fontSize + 'px', opacity: tag.opacity }"
+          v-for="tag in tagsWithStyle"
+          :key="tag.tag">
+          {{tag.tag}}
         </div>
       </div>
     </div>
@@ -22,7 +23,21 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['tags'])
+    ...mapGetters(['tags']),
+    tagsWithStyle() {
+      return this.tags.map(tag => {
+        return {
+          tag,
+          fontSize: this.random(14, 32),
+          opacity: this.random(3, 10) / 10
+        };
+      });
+    }
+  },
+  methods: {
+    random(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
   }
 };
 </script>
@@ -33,14 +48,24 @@ export default {
     box-shadow: 3px 3px 5px $default-border
     background: $white
     .header
+      padding-top: 20px
       text-align: center
       font-size: 30px
     .container
+      padding: 30px
       .tag-list
-        display: flex
+        vertical-align: baseline
         .item
-          margin-right: 10px
+          text-transform: capitalize
+          position: relative
+          display: inline-block
+          margin-right: 25px
           cursor: pointer
-          border-bottom: 1px solid $gray
-
+          border-bottom: 1px solid #888
+          margin-bottom: 20px
+          transition: all .5s
+          &:hover
+            border-bottom: 3px dotted #888
+            color: #333
+            opacity: 1 !important
 </style>

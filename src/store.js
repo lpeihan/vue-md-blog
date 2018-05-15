@@ -60,7 +60,8 @@ function fetchArticles(options = {}) {
 const state = {
   total: 0,
   articles: [],
-  tags: []
+  tags: [],
+  archives: {}
 };
 
 const mutations = {
@@ -72,19 +73,38 @@ const mutations = {
   },
   getTotal(state, total) {
     state.total = total;
+  },
+  getArchives(state, archives) {
+    state.archives = archives;
   }
 };
 
 const actions = {
-  async getArticles({ commit }, tag) {
+  async getArticles({ commit }, options) {
     try {
-      const { articles, tags, total } = await fetchArticles(tag);
+      const { articles, tags, total } = await fetchArticles(options);
       commit('getTotal', total);
       commit('getArticles', articles);
       commit('getTags', tags);
     } catch (e) {
       console.log(e);
     }
+  },
+  async getArchives({ commit }) {
+    const { articles, total } = await fetchArticles({ start: 0, limit: Infinity });
+
+    const archives = {};
+
+    articles.forEach((article) => {
+      const year = article.date.split('-')[0];
+      if (!archives[year]) {
+        archives[year] = [];
+      }
+      archives[year].push(article);
+    });
+
+    commit('getTotal', total);
+    commit('getArchives', archives);
   }
 };
 
@@ -103,6 +123,9 @@ const getters = {
   },
   total(state) {
     return state.total;
+  },
+  archives(state) {
+    return state.archives;
   }
 };
 

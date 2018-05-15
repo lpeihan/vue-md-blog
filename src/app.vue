@@ -33,10 +33,12 @@ export default {
 
   normalize-css()
 
+  body
+    background: $default-bg
   #app
     .content
       margin-left: 300px
-      padding: 10px 30px
+      padding: 24px
       background: $default-bg
     .fade
       &-enter

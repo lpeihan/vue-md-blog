@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import ArticleList from './views/articles/article-list.vue';
 import Tags from './views/tags/tags';
+import Archives from './views/archives/archives';
 
 import articles from '../articles/articles';
 
@@ -10,7 +11,7 @@ Vue.use(Router);
 const routes = [
   {
     path: '/',
-    name: 'ArticleList',
+    name: 'home',
     component: ArticleList
   },
   {
@@ -20,8 +21,13 @@ const routes = [
   },
   {
     path: '/tags',
-    name: 'Tags',
+    name: 'tags',
     component: Tags
+  },
+  {
+    path: '/archives',
+    name: 'archives',
+    component: Archives
   }
 ];
 

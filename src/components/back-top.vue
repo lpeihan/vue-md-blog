@@ -59,7 +59,7 @@ export default {
     position: fixed
     text-align: center
     color: $white
-    right: 30px
+    right: 24px
     bottom: 50px
     width: 40px
     height: 40px
