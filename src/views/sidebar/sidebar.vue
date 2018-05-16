@@ -153,6 +153,9 @@ export default {
           margin: -60px auto 0
           size: 90px
           border: 3px solid $white
+          &:hover
+            animation: none
+            border: 3px solid rgb(234, 217, 204)
         .title
           margin: 10px
         .sub-title
