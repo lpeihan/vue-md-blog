@@ -12,7 +12,7 @@
       <a
         v-if="moreShow"
         class="more"
-        @click="$router.push(article.name)">
+        @click="$router.push(`/${article.name}`)">
         展开全文 >>
       </a>
       <a
