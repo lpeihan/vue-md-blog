@@ -94,9 +94,17 @@ export default {
 
     .more
       background: #4d4d4d
-      padding: 5px 8px
+      padding: 5px 0
+      text-align: center
+      flex: 0 0 96px
       font-size: 14px
       border-radius: 2px
       cursor: pointer
-
+  @media screen and (max-width: 800px)
+    .article-footer
+      margin: 0 20px
+      height: 70px
+      .tag-list
+        .tag
+          margin: 0 15px 5px 0
 </style>

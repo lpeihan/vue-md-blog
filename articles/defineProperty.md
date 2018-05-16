@@ -1,7 +1,7 @@
 {
   "title": "神奇的Object.defineProperty",
   "date": "2018-05-17",
-  "tags": "css"
+  "tags": "javascript"
 }
 
 

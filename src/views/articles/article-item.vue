@@ -39,5 +39,8 @@ export default {
       & > p
         &:first-child
           display: none
-
+  @media screen and (max-width: 800px)
+    .article
+      &-content
+        padding: 0 20px
 </style>

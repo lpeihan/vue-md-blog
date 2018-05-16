@@ -31,4 +31,16 @@ export default {
     .date
       color: $gray
       font-size: 20px
+  @media screen and (max-width: 800px)
+    .article-header
+     border-left: none
+     padding: 4% 0
+     margin: 0 20px 20px
+     display: block
+     border-bottom: 1px dashed $default-border
+     .title
+        font-size: 20px
+     .date
+        font-size: 18px
+        margin-top: 5px
 </style>

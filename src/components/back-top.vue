@@ -58,6 +58,7 @@ export default {
   .back-top
     position: fixed
     text-align: center
+    z-index: 100
     color: $white
     right: 24px
     bottom: 50px
@@ -76,4 +77,7 @@ export default {
       &-leave-to
         bottom: -30px
         opacity: 0
+  @media screen and (max-width: 800px)
+    .back-top
+      right: 20px
 </style>

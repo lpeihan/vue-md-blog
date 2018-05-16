@@ -58,5 +58,12 @@ export default {
         & > p
           &:first-child
             display: none
-
+  @media screen and (max-width: 800px)
+    #app
+      .content
+        margin: 0
+        padding: 0
+      .markdown-body
+        section
+          padding: 0 20px
 </style>

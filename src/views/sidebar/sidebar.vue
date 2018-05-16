@@ -8,19 +8,37 @@
       <div class="sub-title">
         凡心所向，素履以往。
       </div>
-      <div class="nav">
-        <div class="item" @click="$router.push('/')">首页</div>
-        <div class="item" @click="$router.push('/tags')">标签</div>
-        <div class="item"  @click="$router.push('/archives')">归档</div>
+      <div class="menu-btn" @click="menuShow = !menuShow">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </div>
-      <div class="links">
-        <a class="item github" href="https://github.com/lpeihan" target="_blank"></a>
-        <a class="item weibo"></a>
-        <a class="item zhihu"></a>
+      <div :style="{ height: menuShow ? '186px' : 0, transition: 'all .3s' }">
+        <div class="nav">
+          <div class="item" @click="$router.push('/')">首页</div>
+          <div class="item" @click="$router.push('/tags')">标签</div>
+          <div class="item"  @click="$router.push('/archives')">归档</div>
+        </div>
+        <div class="links">
+          <a class="item github" href="https://github.com/lpeihan" target="_blank"></a>
+          <a class="item weibo"></a>
+          <a class="item zhihu"></a>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      menuShow: false
+    };
+  }
+};
+</script>
 
 <style lang="stylus" scoped>
   @import "../../styles/mixins"
@@ -36,10 +54,11 @@
       height: 160px
       absolute: top 0 left 0 right 0
       background: #5d5d5d
-      z-index: -1
     .container
       margin-top: 160px
       text-align: center
+      .menu-btn
+        display: none
       .avatar
         position: relative
         margin: -55px auto 0
@@ -61,6 +80,8 @@
               top: -1px
       .title
         font-size: 28px
+        font-family: "Times New Roman", Georgia, Times, sans-serif
+        font-weight: bold
         margin: 20px
         color: #666
       .sub-title
@@ -96,4 +117,43 @@
           &.zhihu
             background: url('../../assets/zhihu.png') no-repeat #fff
             background-size: 100%
+  @media screen and (max-width: 800px)
+    .sidebar
+      position: relative
+      width: 100%
+      background: rgba(234, 217, 204, 0.4)
+      &::before
+        height: 80px
+      .container
+        margin-top: 80px
+        .menu-btn
+          box-sizing: content-box
+          display: flex
+          position: absolute
+          top: 28px
+          width: 28px
+          height: 28px
+          left: 28px
+          border-radius: 5px
+          padding: 0 5px
+          flex-wrap: wrap
+          align-content: space-around
+          .line
+            flex: 100%
+            width: 25px
+            height: 2px
+            background: $white
+            border-radius: 2px
+        .avatar
+          margin: -60px auto 0
+          size: 90px
+          border: 3px solid $white
+        .title
+          margin: 10px
+        .sub-title
+          margin-bottom: 10px
+        .nav
+          margin-bottom: 20px
+        .links
+          padding-bottom: 20px
 </style>

@@ -111,5 +111,7 @@ export default {
       .date
         float: right
         color: $gray
+        @media screen and (max-width: 800px)
+          float: none
 
 </style>

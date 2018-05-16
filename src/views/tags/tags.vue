@@ -57,6 +57,8 @@ export default {
       color: #888
     .container
       padding: 30px
+      @media screen and (max-width: 800px)
+        padding: 20px
       .tag-list
         vertical-align: baseline
         .item
