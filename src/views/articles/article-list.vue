@@ -32,7 +32,13 @@ export default {
     },
     async start() {
       await this.query();
-      const dom = document.documentElement;
+
+      let dom;
+      if (document.documentElement.scrollTop) {
+        dom = document.documentElement;
+      } else {
+        dom = document.body;
+      }
       let scrollTop = dom.scrollTop;
 
       for (let i = 60; i >= 0; i--) {
