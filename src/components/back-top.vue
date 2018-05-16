@@ -26,14 +26,21 @@ export default {
     };
   },
   methods: {
+    getBody() {
+      if (document.documentElement.scrollTop) {
+        return document.documentElement;
+      } else {
+        return document.body;
+      }
+    },
     scrollListener() {
-      const { scrollTop, scrollHeight } = document.documentElement;
+      const { scrollTop, scrollHeight } = this.getBody();
       this.percent =
         Math.round(((scrollTop + window.innerHeight) / scrollHeight) * 100);
       this.backShow = scrollTop >= this.height;
     },
     backTop() {
-      const dom = document.documentElement;
+      const dom = this.getBody();
       let scrollTop = dom.scrollTop;
 
       for (let i = 60; i >= 0; i--) {

@@ -1,4 +1,10 @@
 {
+  "defineProperty.md": {
+    "title": "神奇的Object.defineProperty",
+    "date": "2018-05-17",
+    "tags": "javascript",
+    "content": "{\r\n  \"title\": \"神奇的Object.defineProperty\",\r\n  \"date\": \"2018-05-17\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n\r\n`vue.js`是通过`defineProperty`实现双向绑定的。\r\n\r\n简单使用：\r\n\r\n```javascript\r\nconst a = {};\r\nObject.defineProperty(a, 'b', {\r\n  value:123\r\n});\r\nconsole.log(a.b);  //123\r\n```\r\n\r\n它接受三个参数，而且都是必填的。\r\n\r\n#### 传入参数\r\n\r\n* 第一个参数：目标对象\r\n* 第二个参数：需要定义的属性或方法的名字。\r\n* 第三个参数：目标属性所拥有的特性`descriptor` 。\r\n\r\n####  descriptor\r\n\r\n- `value`\r\n- `writable`：属性的值是否能被重写\r\n- `configurable`：一旦为false，就不能再设置`value`，`writable`，`configurable`\r\n- `enumerable`：是否能在`for...in`循环中遍历出来或在`Object.keys`中列举出来\r\n- `get`\r\n- `set`\r\n"
+  },
   "border-radius.md": {
     "title": "border-radius隐藏的威力",
     "date": "2017-12-22",
@@ -10,12 +16,6 @@
     "date": "2018-04-28",
     "tags": "javascript",
     "content": "{\r\n  \"title\": \"单线程和事件循环\",\r\n  \"date\": \"2018-04-28\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n1. 单线程\r\n   \r\n    * 单线程的`JS`引擎\r\n\r\n   所谓单线程，是指在`JS`引擎中负责解释和执行`JavaScript`代码的线程只有一个，称之主线程。\r\n   \r\n    * 多线程的浏览器\r\n\r\n   但是实际浏览器上还存在其他的线程。例如：界面渲染线程,处理`AJAX`请求的线程、处理`DOM`事件的线程、定时器线程、读写文件的线程等等。\r\n   \r\n   * `js引擎线程`和`界面渲染引擎`互斥\r\n   \r\n    `界面渲染引擎`负责渲染浏览器`html`元素，当界面需要重绘`Repaint`或由于某种操作引发回流`reflow`时,该线程就会执行。在脚本中对界面进行更新操作，如添加结点、删除结点或改变结点的外观等更新并不会立即体现出来，这些操作将保存在一个队列中，待`JavaScript`引擎空闲时才有机会渲染出来.\r\n  \r\n\r\n2. 可视化描述\r\n\r\n    ![stack](http://note.youdao.com/yws/api/personal/file/391F49F1EB8040D194BD6B0F3DFE5969?method=download&shareKey=cdf29e565ce8891507a246658f8a5196)\r\n\r\n"
-  },
-  "defineProperty.md": {
-    "title": "神奇的Object.defineProperty",
-    "date": "2018-05-17",
-    "tags": "javascript",
-    "content": "{\r\n  \"title\": \"神奇的Object.defineProperty\",\r\n  \"date\": \"2018-05-17\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n\r\n`vue.js`是通过`defineProperty`实现双向绑定的。\r\n\r\n简单使用：\r\n\r\n```javascript\r\nconst a = {};\r\nObject.defineProperty(a, 'b', {\r\n  value:123\r\n});\r\nconsole.log(a.b);  //123\r\n```\r\n\r\n它接受三个参数，而且都是必填的。\r\n\r\n#### 传入参数\r\n\r\n* 第一个参数：目标对象\r\n* 第二个参数：需要定义的属性或方法的名字。\r\n* 第三个参数：目标属性所拥有的特性`descriptor` 。\r\n\r\n####  descriptor\r\n\r\n- `value`\r\n- `writable`：属性的值是否能被重写\r\n- `configurable`：一旦为false，就不能再设置`value`，`writable`，`configurable`\r\n- `enumerable`：是否能在`for...in`循环中遍历出来或在`Object.keys`中列举出来\r\n- `get`\r\n- `set`\r\n"
   },
   "exports.md": {
     "title": "exports和module.exports的区别",
@@ -53,16 +53,16 @@
     "tags": "javascript 算法 leetcode",
     "content": "{\r\n  \"title\": \"Promise\",\r\n  \"date\": \"2018-02-23\",\r\n  \"tags\": \"javascript 算法 leetcode\"\r\n}\r\n\r\nWrite a function that takes a string as input and returns the string reversed.\r\n\r\nExample:\r\nGiven s = \"hello\", return \"olleh\".\r\n\r\n```js\r\n/**\r\n * @param {string} s\r\n * @return {string}\r\n */\r\nvar reverseString = function(s) {\r\n    return s.split('').reverse().join('');\r\n};\r\n```\r\n\r\n```js\r\n/**\r\n * @param {string} s\r\n * @return {string}\r\n */\r\nvar reverseString = function(s) {\r\n    let str = '';\r\n    for (let i = s.length - 1; i >= 0; i--) {\r\n        str += s[i];\r\n    }\r\n    return str;\r\n};\r\n```"
   },
-  "闭包.md": {
-    "title": "闭包的理解",
-    "date": "2017-12-22",
-    "tags": "javascript",
-    "content": "{\r\n  \"title\": \"闭包的理解\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n\r\n## 闭包的定义和特性\r\n\r\n`闭包`是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。\r\n\r\n闭包有下面三个特性：\r\n\r\n1. 函数嵌套函数。\r\n2. 函数内部可以引用外部的参数和变量\r\n3. 参数和变量不会被垃圾回收机制回收\r\n"
-  },
   "vue的数据绑定.md": {
     "title": "Vue简单的数据绑定",
     "date": "2018-04-29",
     "tags": "javascript vue",
     "content": "{\r\n  \"title\": \"Vue简单的数据绑定\",\r\n  \"date\": \"2018-04-29\",\r\n  \"tags\": \"javascript vue\"\r\n}\r\n\r\n`vue.js`的`getter`和`setter`\r\n\r\n\r\n```javascript\r\n// 观察者构造函数\r\n\r\nfunction Observer(data) {\r\n  this.data = data;\r\n  this.convert(data);\r\n}\r\n\r\nObserver.prototype.convert = function(obj) {\r\n  let val;\r\n  for (let key in obj) {\r\n  \t//for...in循环会把对象原型链上的所有可枚举属性都循环出来\r\n\tif (obj.hasOwnProperty(key)) {\r\n      val = obj[key];\r\n\t  if (typeof val === \"object\") {\r\n\t    new Observer(val);\r\n\t  }\r\n\t  this.setVaule(key, val);\r\n\t}\r\n  }\r\n};\r\n\r\nObserver.prototype.setVaule = function(key, val) {\r\n  Object.defineProperty(this.data, key, {\r\n    enumerable: true,\r\n    configurable: true,\r\n    get: function() {\r\n      console.log('你访问了' + key);\r\n      return val;\r\n    },\r\n    set: function(newVal) {\r\n      console.log('你设置了' + key);\r\n      console.log('新的' + key + ' = ' + newVal);\r\n      val = newVal;\r\n    }\r\n  });\r\n};\r\n\r\n// 调用\r\nconst vue = new Observer({\r\n  name: {\r\n    firstName: 'peihan',\r\n    lastName: 'li'\r\n  },\r\n  age: 25\r\n});\r\n\r\nvue.data.age = 18;\r\nvue.data.name.firstName = 'pipi';\r\n\r\nconsole.log(vue.data.age);\r\n\r\n// 你设置了age\r\n// 新的 age = 18\r\n// 你访问了 name\r\n// 你设置了 firstName\r\n// 新的 firstName = 'pipi'\r\n```\r\n\r\n\r\n\r\n"
+  },
+  "闭包.md": {
+    "title": "闭包的理解",
+    "date": "2017-12-22",
+    "tags": "javascript",
+    "content": "{\r\n  \"title\": \"闭包的理解\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n\r\n## 闭包的定义和特性\r\n\r\n`闭包`是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。\r\n\r\n闭包有下面三个特性：\r\n\r\n1. 函数嵌套函数。\r\n2. 函数内部可以引用外部的参数和变量\r\n3. 参数和变量不会被垃圾回收机制回收\r\n"
   }
 }
