@@ -36,6 +36,11 @@ export default {
     return {
       menuShow: false
     };
+  },
+  watch: {
+    $route() {
+      this.menuShow = false;
+    }
   }
 };
 </script>
