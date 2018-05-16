@@ -5,10 +5,17 @@ import compileMarkdown from './utils/marked';
 
 Vue.use(Vuex);
 
+const TAGS = ['html', 'css', 'javascript', 'vue', 'vuex', 'react', 'redux', 'http', 'ajax', 'webpack', 'gulp',
+  'node', 'express', 'koa', 'mongodb', 'mongoose', 'redis', 'linux', 'leetcode', 'git', 'github',
+  'photoshop', '数据结构', 'json', 'cors', 'markdown', 'hexo', 'atom', 'vscode', 'jquery'];
+
 function formatArticles(articlesJson) {
   const articles = Object.keys(articlesJson).map((name) => {
     const { title, tags, date, content } = articlesJson[name];
 
+    // if (typeof tags !== 'string') {
+    //   tags.pop();
+    // }
     return {
       title,
       tags,
@@ -30,19 +37,18 @@ function formatTags(articles) {
   const tags = new Set();
 
   articles.forEach(article => {
-    article.tags.split(' ').forEach(tag => {
+    article.tags.split(' ').concat(TAGS).forEach(tag => {
       tags.add(tag);
     });
   });
 
-  return tags;
+  return [...tags];
 }
 
-function fetchArticles(options = {}) {
+function fetchArticles(options = { limit: Infinity, start: 0 }) {
   return new Promise(function(resolve, reject) {
     const articlesJson = require('../articles/articles');
     const { tag, limit, start } = options;
-
     let articles = formatArticles(articlesJson);
     const tags = formatTags(articles);
 
@@ -51,7 +57,7 @@ function fetchArticles(options = {}) {
 
     resolve({
       articles: articles.slice(start, start + limit),
-      tags: [...tags],
+      tags,
       total
     });
   });
@@ -91,7 +97,7 @@ const actions = {
     }
   },
   async getArchives({ commit }) {
-    const { articles, total } = await fetchArticles({ start: 0, limit: Infinity });
+    const { articles, total } = await fetchArticles();
 
     const archives = {};
 

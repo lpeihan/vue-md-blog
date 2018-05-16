@@ -1,6 +1,6 @@
 <template>
   <div class="article-header">
-    <div class="title">{{title}}</div>
+    <div class="title" @click="$router.push(name)">{{title}}</div>
     <div class="date">{{date}}</div>
   </div>
 </template>
@@ -9,7 +9,8 @@
 export default {
   props: {
     title: String,
-    date: String
+    date: String,
+    name: String
   }
 };
 </script>
@@ -26,6 +27,7 @@ export default {
     color: #696969
     .title
       font-size: 30px
+      cursor: pointer
     .date
       color: $gray
       font-size: 20px

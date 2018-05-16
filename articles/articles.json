@@ -1,38 +1,68 @@
 {
-  "dictionary.md": {
-    "title": "字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构",
-    "tags": "javascript 数据结构",
-    "date": "2018-05-18",
-    "content": "{\r\n  \"title\": \"字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构字典是一种以`键-值`形式存储的数数据结构\",\r\n  \"tags\": \"javascript 数据结构\",\r\n  \"date\": \"2018-05-18\"\r\n}\r\n\r\n字典是一种以`键-值`形式存储的数数据结构，就像电话号码簿里的名字和电话号码一样。要找一个电话时，先找名字，名字找到了，紧挨这它的电话号码也就找到了。\r\n\r\n`JavaScript`的`Object`类就是以字典的形式存在的。\r\n\r\n`Dictionary`类的基础是`Array`类，而不是`Object`类。\r\n\r\n1. `Dictionary`类\r\n\r\n```js\r\nclass Dictionary {\r\n  constructor() {\r\n    this.dataStore = new Array();\r\n  }\r\n\r\n  add(key, value) {\r\n    this.dataStore[key] = value;\r\n  }\r\n\r\n  remove(key) {\r\n    delete this.dataStore[key];\r\n  }\r\n\r\n  count() {\r\n    return Object.keys(this.dataStore).length;\r\n  }\r\n\r\n  clear() {\r\n    Object.keys(this.dataStore).forEach((key) => {\r\n      delete this.dataStore[key];\r\n    });\r\n  }\r\n  \r\n  // sort 是对键值进行排序\r\n  showAll() {\r\n    const keys = Object.keys(this.dataStore).sort();\r\n\r\n    if (keys.length) {\r\n      keys.forEach((key) => {\r\n        console.log(`${key} -> ${this.dataStore[key]}`);\r\n      });\r\n    } else {\r\n      console.log(null);\r\n    }\r\n  }\r\n}\r\n\r\nconst pbook = new Dictionary();\r\npbook.add('Mike', 123);\r\npbook.add('David', 456);\r\npbook.add('Cynthia', 456);\r\npbook.remove('David');\r\npbook.showAll();\r\npbook.clear();\r\npbook.showAll();\r\n```\r\n\r\n"
+  "border-radius.md": {
+    "title": "border-radius隐藏的威力",
+    "date": "2017-12-22",
+    "tags": "css",
+    "content": "{\r\n  \"title\": \"border-radius隐藏的威力\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"css\"\r\n}\r\n\r\n1. 实心圆\r\n\r\n   ```css\r\n   #circle {\r\n     width: 100px;\r\n     height: 100px;\r\n     background: red;\r\n     border-radius: 50%;\r\n   }\r\n   ```\r\n\r\n2. 空心圆\r\n\r\n   ```css\r\n   #circle {\r\n     width: 100px;\r\n     height: 100px;\r\n     border: 1px solid red;\r\n     border-radius: 50%;\r\n   }\r\n   ```\r\n"
   },
   "flex.md": {
-    "title": "使用 Travis CI 自动更新 GitHub Pages",
-    "tags": "javascript css",
-    "date": "2017-05-14",
-    "content": "{\r\n  \"title\": \"使用 Travis CI 自动更新 GitHub Pages\",\r\n  \"tags\": \"javascript css\",\r\n  \"date\": \"2017-05-14\"\r\n}\r\n\r\n#### flex\r\n\r\n`flex`就是`flexible box`的缩写，意为弹性布局。\r\n\r\n任何一个容器都可以指定为`flex`布局。\r\n\r\n```css\r\n.box {\r\n  display: flex;\r\n}\r\n```\r\n\r\n行内元素也可以使用`flex`布局。\r\n\r\n```css\r\n.box {\r\n  display: inline-flex;\r\n}\r\n```\r\n\r\n注意，设为`flex`布局后，子元素的`float` `clear` `vertical-align`属性都会失效。\r\n\r\n"
+    "title": "flex布局",
+    "date": "2017-12-22",
+    "tags": "css",
+    "content": "{\r\n  \"title\": \"flex布局\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"css\"\r\n}\r\n\r\n#### flex\r\n\r\n`flex`就是`flexible box`的缩写，意为弹性布局。\r\n\r\n任何一个容器都可以指定为`flex`布局。\r\n\r\n```css\r\n.box {\r\n  display: flex;\r\n}\r\n```\r\n\r\n行内元素也可以使用`flex`布局。\r\n\r\n```css\r\n.box {\r\n  display: inline-flex;\r\n}\r\n```\r\n\r\n注意，设为`flex`布局后，子元素的`float` `clear` `vertical-align`属性都会失效。\r\n\r\n"
   },
-  "hello.md": {
-    "title": "A Vue directive for occupying content places before the data has been loaded",
-    "tags": "javascript vue tool",
-    "date": "2018-05-13",
-    "content": "{\r\n  \"title\": \"A Vue directive for occupying content places before the data has been loaded\",\r\n  \"tags\": \"javascript vue tool\",\r\n  \"date\": \"2018-05-13\"\r\n}\r\n\r\nA Vue directive for occupying content places before the data has been loaded.\r\n\r\nIt's good for user experiment improving.\r\n\r\n# Install\r\nUsing `yarn` or `npm` to install `vue-occupy`:\r\n\r\n```\r\n# yarn\r\nyarn add vue-occupy\r\n\r\n# npm\r\nnpm install vue-occupy\r\n```\r\n"
+  "闭包.md": {
+    "title": "闭包的理解",
+    "date": "2017-12-22",
+    "tags": "javascript",
+    "content": "{\r\n  \"title\": \"闭包的理解\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n\r\n## 闭包的定义和特性\r\n\r\n`闭包`是指有权访问另一个函数作用域中的变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量。\r\n\r\n闭包有下面三个特性：\r\n\r\n1. 函数嵌套函数。\r\n2. 函数内部可以引用外部的参数和变量\r\n3. 参数和变量不会被垃圾回收机制回收\r\n"
   },
-  "resiful-api.md": {
-    "title": "promise",
-    "tags": "javascript mongo redis webpack node koa express",
-    "date": "2018-03-01",
-    "content": "{\r\n  \"title\": \"promise\",\r\n  \"tags\": \"javascript mongo redis webpack node koa express\",\r\n  \"date\": \"2018-03-01\"\r\n}\r\n\r\n资源：网络上的一个实体，或者一个具体信息。\r\n\r\n`restful api` ：\r\n\r\n`http`协议：应用层协议。\r\n\r\n完整的`URL` ：`schema://host[:port]path[?query-string][#anchor]`\r\n\r\n协议、`IP`地址或域名、端口、资源路径、发送给`http`的数据、锚\r\n\r\n```js\r\nGET / HTTP/1.1 CRLF\r\n\r\n// get post put delete\r\n\r\nHTTP/1.1 200 OK\r\n\r\n响应状态码\r\n200 OK\r\n201 CREARED 新建或修改数据成功\r\n204 NO CONTENT 删除数据成功\r\n400 bad request 当前客户端请求有语法错误，不能被服务器所理解\r\n401 unauthorized 服务器收到请求，到客户端并没有授权，服务器拒绝服务\r\n403 forbidden 用户访问被禁止\r\n404 not found 请求资源不存在\r\n405 method not allowed,请求方法不被允许\r\n422 当创建一个对象时，发生一个错误，比如创建用户少了密码字段\r\n500 internal server error 服务器内部错误，服务器发生不可预知的错误\r\n503 server unavailble 服务器性能达到瓶颈\r\n```\r\n\r\n资源路径\r\n\r\n每一个网址代表一种资源，所以网址中不能有动词，只能有名词。一般来说，`API`中的名词应该使用负数。\r\n\r\n```js\r\nhttps://example.com/api/v1/zoos // 动物园资源\r\nhttps://example.com/api/v1/animals // 动物资源\r\n\r\nPOST /zoos 新建一个动物园\r\nGET /zoos/id 获取某个动物园\r\nPUT /zoos/id 更新一个动物园\r\nDELETE /zoos/id 删除一个动物园\r\n\r\n过滤信息：\r\n?offset=10\r\n?page=2&per_page=100\r\n?sortby=name&order=asc\r\n?animal_type_id=1\r\n\r\n```\r\n\r\n错误处理\r\n\r\n```js\r\n如果状态是 4xx 或者 5xx，就应该向用户返回出错信息。\r\n{\r\n    \"error\": \"参数错误\"\r\n}\r\n```\r\n\r\n返回结果\r\n\r\n```js\r\nGET /collections 返回资源对象列表（数组）\r\nGET /collections/identity 返回单个资源对象\r\nPOST /collection 返回新生成资源对象的全部属性\r\nPUT /collection/identity 返回完整的资源对象\r\nDELETE /collection/identity 返回一个空文档 204状态码\r\nPATCH /collection/identity 返回被修改的对象属性\r\n```\r\n\r\n实例：\r\n\r\n```js\r\n用户表： id username password create_time\r\n文章表： id title content create_time user\r\nrestful api 六要素：资源路径（URI）HTTP动词 过滤信息 状态码 错误处理 返回结果\r\n\r\n```\r\n\r\n\r\n\r\n参考：https://www.imooc.com/video/14356\r\n\r\n"
+  "prototype.md": {
+    "title": "原型和原型链详解",
+    "date": "2018-02-22",
+    "tags": "javascript",
+    "content": "{\r\n  \"title\": \"原型和原型链详解\",\r\n  \"date\": \"2018-02-22\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n## 私有变量和函数\r\n\r\n在函数内部定义的变量和函数，如果不对外提供接口，外部是无法访问到的，也就是该函数的`私有变量`和`私有函数`。\r\n\r\n```javascript\r\nfunction Person() {\r\n  const name = 18;\r\n  const say = function() {\r\n    console.log('hello world');\r\n  }\r\n}\r\n\r\nconst person = new Person();\r\nperson.name; // undefined\r\nperson.say; // undefined\r\n```\r\n\r\n## 静态变量和函数\r\n\r\n当定义一个函数后通过点号 `'.'`为其添加的属性和函数，通过对象本身仍然可以访问得到，但是其实例却访问不到，这样的变量和函数分别被称为`静态变量`和`静态函数`。\r\n\r\n```javascript\r\nfunction Person() {};\r\n\r\nPerson.age = 18;\r\nPerson.say = function() {\r\n  console.log(`hello world`);\r\n}\r\n\r\nPerson.age; // 18\r\ntypeof Person.say; // function\r\n\r\nconst person = new Person();\r\nperson.age; // undefined\r\nperson.say; // undefined\r\n\r\n```\r\n"
   },
   "promise.md": {
-    "title": "promise",
-    "tags": "javascript mongo redis webpack node koa express",
-    "date": "2018-03-01",
-    "content": "{\r\n  \"title\": \"promise\",\r\n  \"tags\": \"javascript mongo redis webpack node koa express\",\r\n  \"date\": \"2018-03-01\"\r\n}\r\n\r\n* 概念\r\n\r\n`Promise`是异步编程的一种解决方案，比传统的解决方案（回调函数和事件）更合理更强大，能优雅解决回调地狱难题。\r\n\r\n所谓`Promise`，简单说就是一个容器，里面保存着某个未来才会结束的事件的结果。\r\n\r\n`Promise`对象代表一个异步操作，有三种状态：`Pending(进行中)`、`Resolved(已完成)`和`Rejected(已失败)`。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是`Promise`这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。 \r\n\r\n* 基本用法\r\n\r\n`Promise`构造函数接受一个函数作为参数，该函数的两个参数分别是`resolve`和`reject`。\r\n\r\n`resolve`将`Promise`对象的状态从从`Pending`变为`Resolved`，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。\r\n\r\n`reject`函数的作用是，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。\r\n\r\n`Promise`实例生成以后，可以用`then`方法分别制定`Resolved`状态和`Rejected`状态的回调函数。\r\n\r\n```javascript\r\nconst promise = new Promise(function(resolve, reject) {\r\n  // ... some code\r\n  if (/* 异步操作成功 */) {\r\n    resolve(value);\r\n  } else {\r\n    reject(error);\r\n  }\r\n});\r\n\r\npromise.then(function(value) {\r\n  // sucess\r\n}, function(error) {\r\n  // failure\r\n});\r\n```\r\n"
+    "title": "Promise",
+    "date": "2018-02-23",
+    "tags": "javascript ES6",
+    "content": "{\r\n  \"title\": \"Promise\",\r\n  \"date\": \"2018-02-23\",\r\n  \"tags\": \"javascript ES6\"\r\n}\r\n\r\n* 概念\r\n\r\n`Promise`是异步编程的一种解决方案，比传统的解决方案（回调函数和事件）更合理更强大，能优雅解决回调地狱难题。\r\n\r\n所谓`Promise`，简单说就是一个容器，里面保存着某个未来才会结束的事件的结果。\r\n\r\n`Promise`对象代表一个异步操作，有三种状态：`Pending(进行中)`、`Resolved(已完成)`和`Rejected(已失败)`。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是`Promise`这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。 \r\n\r\n* 基本用法\r\n\r\n`Promise`构造函数接受一个函数作为参数，该函数的两个参数分别是`resolve`和`reject`。\r\n\r\n`resolve`将`Promise`对象的状态从从`Pending`变为`Resolved`，在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。\r\n\r\n`reject`函数的作用是，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。\r\n\r\n`Promise`实例生成以后，可以用`then`方法分别制定`Resolved`状态和`Rejected`状态的回调函数。\r\n\r\n"
   },
-  "test1.md": {
-    "title": "Vue",
-    "tags": "javascript vue tool",
-    "date": "2018-05-13",
-    "content": "{\r\n  \"title\": \"Vue\",\r\n  \"tags\": \"javascript vue tool\",\r\n  \"date\": \"2018-05-13\"\r\n}\r\n\r\nA Vue directive for occupying content places before the data has been loaded.\r\n\r\nIt's good for user experiment improving.\r\n\r\n# Install\r\nUsing `yarn` or `npm` to install `vue-occupy`:\r\n\r\n```\r\n# yarn\r\nyarn add vue-occupy\r\n\r\n# npm\r\nnpm install vue-occupy\r\n```\r\n"
+  "exports.md": {
+    "title": "exports和module.exports的区别",
+    "date": "2018-04-25",
+    "tags": "node javascript ES6",
+    "content": "{\r\n  \"title\": \"exports和module.exports的区别\",\r\n  \"date\": \"2018-04-25\",\r\n  \"tags\": \"node javascript ES6\"\r\n}\r\n\r\n\r\n`exports`是对`module.exports`的一个引用。\r\n\r\n如下：\r\n\r\n```js\r\nconst module = {\r\n    exports: {}\r\n};\r\n\r\nconst exports = module.exports;\r\n\r\nconsole.log(exports === module.exports); // true\r\n```\r\n\r\n"
+  },
+  "path.md": {
+    "title": "path模块",
+    "date": "2017-12-22",
+    "tags": "node",
+    "content": "{\r\n  \"title\": \"path模块\",\r\n  \"date\": \"2017-12-22\",\r\n  \"tags\": \"node\"\r\n}\r\n\r\n```javascript\r\n// 引入path模块\r\n\r\nconst path = reuiqre('path');\r\n```\r\n\r\n###  `path.normalize` 路径整理\r\n\r\n```javascript\r\n// 对window系统，目录分隔为'\\', 对于UNIX系统，分隔符为'/'\r\n// 针对'..'返回上一级\r\n// /与\\\\都被统一转换\r\n\r\nconst p = path.normalize(__dirname + '/test/a//b//../c/utilyou.mp3');\r\nconsole.log(p); //windows: E:\\workspace\\NodeJS\\app\\fs\\test\\a\\c\\utilyou.mp3\r\n```\r\n"
+  },
+  "event-loop.md": {
+    "title": "单线程和事件循环",
+    "date": "2018-04-28",
+    "tags": "javascript",
+    "content": "{\r\n  \"title\": \"单线程和事件循环\",\r\n  \"date\": \"2018-04-28\",\r\n  \"tags\": \"javascript\"\r\n}\r\n\r\n1. 单线程\r\n   \r\n    * 单线程的`JS`引擎\r\n\r\n   所谓单线程，是指在`JS`引擎中负责解释和执行`JavaScript`代码的线程只有一个，称之主线程。\r\n   \r\n    * 多线程的浏览器\r\n\r\n   但是实际浏览器上还存在其他的线程。例如：界面渲染线程,处理`AJAX`请求的线程、处理`DOM`事件的线程、定时器线程、读写文件的线程等等。\r\n   \r\n   * `js引擎线程`和`界面渲染引擎`互斥\r\n   \r\n    `界面渲染引擎`负责渲染浏览器`html`元素，当界面需要重绘`Repaint`或由于某种操作引发回流`reflow`时,该线程就会执行。在脚本中对界面进行更新操作，如添加结点、删除结点或改变结点的外观等更新并不会立即体现出来，这些操作将保存在一个队列中，待`JavaScript`引擎空闲时才有机会渲染出来.\r\n  \r\n\r\n2. 可视化描述\r\n\r\n    ![stack](http://note.youdao.com/yws/api/personal/file/391F49F1EB8040D194BD6B0F3DFE5969?method=download&shareKey=cdf29e565ce8891507a246658f8a5196)\r\n\r\n"
+  },
+  "defineProperty.md": {
+    "title": "神奇的Object.defineProperty",
+    "date": "2018-05-17",
+    "tags": "css",
+    "content": "{\r\n  \"title\": \"神奇的Object.defineProperty\",\r\n  \"date\": \"2018-05-17\",\r\n  \"tags\": \"css\"\r\n}\r\n\r\n\r\n`vue.js`是通过`defineProperty`实现双向绑定的。\r\n\r\n简单使用：\r\n\r\n```javascript\r\nconst a = {};\r\nObject.defineProperty(a, 'b', {\r\n  value:123\r\n});\r\nconsole.log(a.b);  //123\r\n```\r\n\r\n它接受三个参数，而且都是必填的。\r\n\r\n#### 传入参数\r\n\r\n* 第一个参数：目标对象\r\n* 第二个参数：需要定义的属性或方法的名字。\r\n* 第三个参数：目标属性所拥有的特性`descriptor` 。\r\n\r\n####  descriptor\r\n\r\n- `value`\r\n- `writable`：属性的值是否能被重写\r\n- `configurable`：一旦为false，就不能再设置`value`，`writable`，`configurable`\r\n- `enumerable`：是否能在`for...in`循环中遍历出来或在`Object.keys`中列举出来\r\n- `get`\r\n- `set`\r\n"
+  },
+  "vue的数据绑定.md": {
+    "title": "Vue简单的数据绑定",
+    "date": "2018-04-29",
+    "tags": "javascript vue",
+    "content": "{\r\n  \"title\": \"Vue简单的数据绑定\",\r\n  \"date\": \"2018-04-29\",\r\n  \"tags\": \"javascript vue\"\r\n}\r\n\r\n`vue.js`的`getter`和`setter`\r\n\r\n\r\n```javascript\r\n// 观察者构造函数\r\n\r\nfunction Observer(data) {\r\n  this.data = data;\r\n  this.convert(data);\r\n}\r\n\r\nObserver.prototype.convert = function(obj) {\r\n  let val;\r\n  for (let key in obj) {\r\n  \t//for...in循环会把对象原型链上的所有可枚举属性都循环出来\r\n\tif (obj.hasOwnProperty(key)) {\r\n      val = obj[key];\r\n\t  if (typeof val === \"object\") {\r\n\t    new Observer(val);\r\n\t  }\r\n\t  this.setVaule(key, val);\r\n\t}\r\n  }\r\n};\r\n\r\nObserver.prototype.setVaule = function(key, val) {\r\n  Object.defineProperty(this.data, key, {\r\n    enumerable: true,\r\n    configurable: true,\r\n    get: function() {\r\n      console.log('你访问了' + key);\r\n      return val;\r\n    },\r\n    set: function(newVal) {\r\n      console.log('你设置了' + key);\r\n      console.log('新的' + key + ' = ' + newVal);\r\n      val = newVal;\r\n    }\r\n  });\r\n};\r\n\r\n// 调用\r\nconst vue = new Observer({\r\n  name: {\r\n    firstName: 'peihan',\r\n    lastName: 'li'\r\n  },\r\n  age: 25\r\n});\r\n\r\nvue.data.age = 18;\r\nvue.data.name.firstName = 'pipi';\r\n\r\nconsole.log(vue.data.age);\r\n\r\n// 你设置了age\r\n// 新的 age = 18\r\n// 你访问了 name\r\n// 你设置了 firstName\r\n// 新的 firstName = 'pipi'\r\n```\r\n\r\n\r\n\r\n"
+  },
+  "reverse-string.md": {
+    "title": "Promise",
+    "date": "2018-02-23",
+    "tags": "javascript 算法 leetcode",
+    "content": "{\r\n  \"title\": \"Promise\",\r\n  \"date\": \"2018-02-23\",\r\n  \"tags\": \"javascript 算法 leetcode\"\r\n}\r\n\r\nWrite a function that takes a string as input and returns the string reversed.\r\n\r\nExample:\r\nGiven s = \"hello\", return \"olleh\".\r\n\r\n```js\r\n/**\r\n * @param {string} s\r\n * @return {string}\r\n */\r\nvar reverseString = function(s) {\r\n    return s.split('').reverse().join('');\r\n};\r\n```\r\n\r\n```js\r\n/**\r\n * @param {string} s\r\n * @return {string}\r\n */\r\nvar reverseString = function(s) {\r\n    let str = '';\r\n    for (let i = s.length - 1; i >= 0; i--) {\r\n        str += s[i];\r\n    }\r\n    return str;\r\n};\r\n```"
   }
 }

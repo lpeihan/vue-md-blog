@@ -41,15 +41,18 @@ Object.keys(articles).forEach((article) => {
         `<div style="background: white">
           <article-header :title="title" :date="date"/>
           <markdown />
+          <article-footer :article="article" :more-show="false"></article-footer>
          </div>`,
       data() {
         return {
           title: articles[article].title,
-          date: articles[article].date
+          date: articles[article].date,
+          article: articles[article]
         };
       },
       components: {
         ArticleHeader: () => import(`./views/articles/article-header`),
+        ArticleFooter: () => import(`./views/articles/article-footer`),
         Markdown: () => import(`../articles/${article}`)
       }
     }
@@ -58,7 +61,7 @@ Object.keys(articles).forEach((article) => {
 
 export default new Router({
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     } else {

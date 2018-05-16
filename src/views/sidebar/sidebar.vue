@@ -4,21 +4,19 @@
       <div class="avatar" @click="$router.push('/')">
         <img src="../../assets/avatar.png" alt="avatar" with="100%" height="100%">
       </div>
-      <!-- <div class="title">Lpeihan</div> -->
+      <div class="title">Lpeihan</div>
       <div class="sub-title">
-        凡心所向，素履以往。<br>
-        生如逆旅，一苇以航。
+        凡心所向，素履以往。
       </div>
       <div class="nav">
         <div class="item" @click="$router.push('/')">首页</div>
         <div class="item" @click="$router.push('/tags')">标签</div>
         <div class="item"  @click="$router.push('/archives')">归档</div>
-        <div class="item">搜索</div>
       </div>
       <div class="links">
-        <a class="github" href="https://github.com/lpeihan" target="_blank"></a>
-        <a class="github"></a>
-        <a class="github"></a>
+        <a class="item github" href="https://github.com/lpeihan" target="_blank"></a>
+        <a class="item weibo"></a>
+        <a class="item zhihu"></a>
       </div>
     </div>
   </div>
@@ -32,6 +30,7 @@
     fixed: top 0 left 0 bottom 0
     width: 300px
     background: rgb(246, 248, 250)
+    overflow: auto
     &::before
       content: ''
       height: 160px
@@ -61,13 +60,12 @@
               right: 0px
               top: -1px
       .title
-        font-size: 30px
-        color: $gray
-        margin-bottom: 25px
+        font-size: 28px
+        margin: 20px
+        color: #666
       .sub-title
         color: #999
-        line-height: 30px
-        margin: 25px 0
+        margin-bottom: 40px
       .nav
         color: #999
         margin-bottom: 40px
@@ -78,11 +76,9 @@
             color: #333
       .links
         text-align: center
-        .github
+        .item
           width: 32px
           height: 32px
-          background: url(//cdn.bootcss.com/logos/0.2.0/github-octocat.svg) no-repeat #fff
-          background-size: 100%
           border-radius: 50%
           box-shadow: 1px 1px 3px rgba(0,0,0,0.3)
           display: inline-block
@@ -91,5 +87,13 @@
           position: relative
           &:last-child
             margin-right: 0
-
+          &.github
+            background: url(//cdn.bootcss.com/logos/0.2.0/github-octocat.svg) no-repeat #fff
+            background-size: 100%
+          &.weibo
+            background: url('../../assets/weibo.png') no-repeat #fff
+            background-size: 100%
+          &.zhihu
+            background: url('../../assets/zhihu.png') no-repeat #fff
+            background-size: 100%
 </style>

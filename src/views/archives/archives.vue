@@ -8,7 +8,11 @@
         <div class="year">
           {{year}}
         </div>
-        <div class="article-title" v-for="article in archives[year]" :key="article.name">
+        <div
+          class="article-title"
+          v-for="article in archives[year]"
+          :key="article.name"
+          @click="$router.push(article.name)">
           {{article.title}}
           <span class="date">{{article.date}}</span>
         </div>

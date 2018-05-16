@@ -38,6 +38,9 @@ export default {
     random(min, max) {
       return Math.round(Math.random() * (max - min) + min);
     }
+  },
+  mounted() {
+    this.$store.dispatch('getArticles');
   }
 };
 </script>
@@ -51,6 +54,7 @@ export default {
       padding-top: 20px
       text-align: center
       font-size: 30px
+      color: #888
     .container
       padding: 30px
       .tag-list

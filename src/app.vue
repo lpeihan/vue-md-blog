@@ -46,7 +46,7 @@ export default {
         opacity: 0
       &-enter-active
       &-leave-active
-        transition: opacity .6s
+        transition: opacity .5s
 
     .markdown-body
       box-sizing: border-box
@@ -54,8 +54,8 @@ export default {
 
       section
         background: $white
-        padding: 1% 5%
-        p
+        padding: 1% 8%
+        & > p
           &:first-child
             display: none
 

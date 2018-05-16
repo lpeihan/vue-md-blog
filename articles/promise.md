@@ -1,7 +1,7 @@
 {
-  "title": "promise",
-  "tags": "javascript mongo redis webpack node koa express",
-  "date": "2018-03-01"
+  "title": "Promise",
+  "date": "2018-02-23",
+  "tags": "javascript ES6"
 }
 
 * 概念
@@ -22,6 +22,8 @@
 
 `Promise`实例生成以后，可以用`then`方法分别制定`Resolved`状态和`Rejected`状态的回调函数。
 
+<!-- lph -->
+
 ```javascript
 const promise = new Promise(function(resolve, reject) {
   // ... some code
@@ -38,7 +40,7 @@ promise.then(function(value) {
   // failure
 });
 ```
-<!-- lph -->
+
 * `Promise`新建后会立即执行
 
 ```javascript

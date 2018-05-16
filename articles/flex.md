@@ -1,7 +1,7 @@
 {
-  "title": "使用 Travis CI 自动更新 GitHub Pages",
-  "tags": "javascript css",
-  "date": "2017-05-14"
+  "title": "flex布局",
+  "date": "2017-12-22",
+  "tags": "css"
 }
 
 #### flex
@@ -165,5 +165,3 @@ align-self
 * `flex`的优先级比`width` `height`高
 
 * 当子项目的内容超过容器设定
-
-
